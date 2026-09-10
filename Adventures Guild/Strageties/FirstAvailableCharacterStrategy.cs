@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adventures_Guild.Characters
+namespace Adventures_Guild.Strageties
 {
-    public interface ISupporter
+    internal class FirstAvailableCharacterStrategy
     {
-        void Support();
     }
 }
