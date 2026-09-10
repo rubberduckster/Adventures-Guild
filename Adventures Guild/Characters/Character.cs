@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Adventures_Guild.Commissions;
 
 namespace Adventures_Guild.Characters
 {
@@ -11,15 +12,19 @@ namespace Adventures_Guild.Characters
         public string Name { get; }
         public int Ascension { get; }
         public bool IsAvailable { get; private set; }
+        public int Wallet { get; private set; }
+        public int CommissionsCompleted { get; private set; }
 
         public Character(string name, int ascension)
         {
             Name = name;
             Ascension = ascension;
             IsAvailable = true;
+            Wallet = 0;
+            CommissionsCompleted = 0;
         }
 
-        public abstract void UseElementalSkill();
+        public abstract void UseElementalSkill(Commission commission);
 
         public void SetUnavailable()
         {
@@ -29,6 +34,11 @@ namespace Adventures_Guild.Characters
         public void SetAvailable()
         {
             IsAvailable = true;
+        }
+        public void CompleteCommission(int reward)
+        {
+            Wallet += reward;
+            CommissionsCompleted++;
         }
     }
 }

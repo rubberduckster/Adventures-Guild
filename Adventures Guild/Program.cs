@@ -13,7 +13,7 @@ namespace Adventures_Guild
         {
             PyroCharacter klee = new PyroCharacter("Klee", 5, 2);
 
-            klee.UseElementalSkill();
+            
         }
     }
 }

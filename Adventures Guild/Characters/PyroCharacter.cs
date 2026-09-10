@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Adventures_Guild.Commissions;
 
 namespace Adventures_Guild.Characters
 {
@@ -16,14 +17,16 @@ namespace Adventures_Guild.Characters
             BurningPower = burningPower;
         }
 
-        public int GetBurnPower()
+        public override void UseElementalSkill(Commission commission)
         {
-            return BurningPower * Ascension;
-        }
+            int skillPower = BurningPower + Ascension;
+            int actualTime = commission.BaseTime / skillPower;
 
-        public override void UseElementalSkill()
-        {
-            Console.WriteLine($"{Name} actives their skill and does {GetBurnPower()} burn.");
+            Console.WriteLine();
+            Console.WriteLine($"--- {Name} ---");
+            Console.WriteLine($"{Name} uses their Pyro skill!");
+            Console.WriteLine($"Burning power: {skillPower}");
+            Console.WriteLine($"Completed in: {actualTime} seconds");
         }
 
         public void Attack()
