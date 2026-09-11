@@ -7,7 +7,7 @@ using Adventures_Guild.Characters;
 using Adventures_Guild.Commissions;
 using Adventures_Guild.Exceptions;
 using Adventures_Guild.Exceptions.Adventures_Guild.Exceptions;
-using Adventures_Guild.Strageties;
+using Adventures_Guild.Strategies;
 
 namespace Adventures_Guild
 {

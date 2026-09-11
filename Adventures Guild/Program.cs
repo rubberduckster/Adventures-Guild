@@ -1,10 +1,14 @@
-﻿using Adventures_Guild.Characters;
-using Adventures_Guild.Commissions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Adventures_Guild;
+using Adventures_Guild.Characters;
+using Adventures_Guild.Commissions;
+using Adventures_Guild.Exceptions;
+using Adventures_Guild.Helpers;
+using Adventures_Guild.Strategies;
 
 namespace Adventures_Guild
 {

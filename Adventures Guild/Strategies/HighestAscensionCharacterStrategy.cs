@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adventures_Guild.Strageties
+namespace Adventures_Guild.Strategies
 {
     public class HighestAscensionCharacterStrategy: ICharacterSelectionStrategy
     {
