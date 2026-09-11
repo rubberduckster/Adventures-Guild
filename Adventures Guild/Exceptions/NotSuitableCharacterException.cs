@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Adventures_Guild.Exceptions
 {
-    namespace Adventures_Guild.Exceptions
+    public class NoSuitableCharacterException : Exception
     {
-        public class NoSuitableCharacterException : Exception
+        public NoSuitableCharacterException(string message)
+        : base(message)
         {
-            public NoSuitableCharacterException(string message)
-            : base(message)
-            {
-            }
         }
     }
 }
