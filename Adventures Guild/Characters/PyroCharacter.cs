@@ -29,9 +29,11 @@ namespace Adventures_Guild.Characters
             Console.WriteLine($"Completed in: {actualTime} seconds");
         }
 
-        public void Attack()
+        public int Attack()
         {
-            Console.WriteLine($"{Name} attacks the enemy.");
+            int damage = BurningPower + Ascension;
+
+            return damage;
         }
     }
 }

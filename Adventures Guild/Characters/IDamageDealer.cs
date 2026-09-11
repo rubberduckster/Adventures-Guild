@@ -8,6 +8,6 @@ namespace Adventures_Guild.Characters
 {
     public interface IDamageDealer
     {
-        void Attack();
+        int Attack();
     }
 }

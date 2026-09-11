@@ -8,6 +8,6 @@ namespace Adventures_Guild.Characters
 {
     public interface IShielder
     {
-        void CreateShield();
+        int ShieldPower { get; }
     }
 }

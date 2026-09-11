@@ -8,6 +8,6 @@ namespace Adventures_Guild.Characters
 {
     public interface IHealer
     {
-     void Heal();
+        int LifePower { get; }
     }
 }

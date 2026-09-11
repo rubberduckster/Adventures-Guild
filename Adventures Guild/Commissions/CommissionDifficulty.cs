@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Adventures_Guild.Commissions
 {
-    internal class CommissionDifficulty
+    public enum CommissionDifficulty
     {
+        Easy,
+        Medium,
+        Hard,
+        Extreme
     }
 }

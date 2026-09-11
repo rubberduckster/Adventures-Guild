@@ -3,19 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Adventures_Guild.Commissions;
 
 namespace Adventures_Guild.Characters
 {
     public class HydroCharacter : Character, IHealer
     {
-        public HydroCharacter(string name, int ascension)
-            : base(name, ascension)
+        public int LifePower { get; private set; }
+
+        public HydroCharacter(string name, int ascension, int lifePower)
+        : base(name, ascension)
         {
+            LifePower = lifePower;
         }
 
-        public override void UseElementalSkill()
+        public override void UseElementalSkill(Commission commission)
         {
-            Console.WriteLine($"{Name} uses a Hydro skill.");
+            int missingHealth = commission.MaxHealth - commission.CurrentHealth;
+            int healingAmount = LifePower * Ascension;
+
+            if (healingAmount > missingHealth)
+            {
+                healingAmount = missingHealth;
+            }
+
+            commission.CurrentHealth += healingAmount;
+
+            Console.WriteLine();
+            Console.WriteLine($"--- {Name} ---");
+            Console.WriteLine($"{Name} uses their Hydro skill!");
+            Console.WriteLine($"Healing power: {healingAmount}");
+            Console.WriteLine(
+                $"Health restored: {commission.CurrentHealth}/{commission.MaxHealth}"
+            );
         }
 
         public void Heal()

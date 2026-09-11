@@ -7,7 +7,7 @@ using Adventures_Guild.Commissions;
 
 namespace Adventures_Guild.Characters
 {
-    public class AnemoCharacter : Character, ISupport
+    public class AnemoCharacter : Character
     {
         public int WindPower { get; private set; }
 
@@ -23,7 +23,7 @@ namespace Adventures_Guild.Characters
             Console.WriteLine();
             Console.WriteLine($"--- {Name} ---");
             Console.WriteLine($"{Name} uses their Anemo skill!");
-            Console.WriteLine($"Lifting power: {liftingPower}");
+            Console.WriteLine($"Lifting power: {liftCapacity}");
             Console.WriteLine($"Required lifting power: {commission.RequiredWeight}");
 
             if (liftCapacity >= commission.RequiredWeight)
@@ -34,11 +34,6 @@ namespace Adventures_Guild.Characters
             {
                 Console.WriteLine("The object is too heavy!");
             }
-        }
-
-        public void Support()
-        {
-            Console.WriteLine($"{Name} supports the party.");
         }
     }
 }

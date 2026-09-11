@@ -1,9 +1,9 @@
-﻿using Adventures_Guild.Commissions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Adventures_Guild.Commissions;
 
 namespace Adventures_Guild.Characters
 {
@@ -36,9 +36,11 @@ namespace Adventures_Guild.Characters
             }
         }
 
-        public void Attack()
+        public int Attack()
         {
-            Console.WriteLine($"{Name} attacks the enemy.");
+            int damage = FreezePower + Ascension;
+
+            return damage;
         }
     }
 }

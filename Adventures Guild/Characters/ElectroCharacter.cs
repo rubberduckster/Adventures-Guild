@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Adventures_Guild.Commissions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,21 +7,31 @@ using System.Threading.Tasks;
 
 namespace Adventures_Guild.Characters
 {
-    public class ElectroCharacter : Character, ISupport
+    public class ElectroCharacter : Character
     {
-        public ElectroCharacter(string name, int ascension)
-            : base(name, ascension)
+        public int EnergyPower { get; private set; }
+
+        public ElectroCharacter(string name, int ascension, int energyPower)
+        : base(name, ascension)
         {
+            EnergyPower = energyPower;
         }
 
-        public override void UseElementalSkill()
+        public override void UseElementalSkill(Commission commission)
         {
-            Console.WriteLine($"{Name} uses their Electro elemental skill.");
-        }
+            int energyPerCharge = EnergyPower + Ascension;
 
-        public void Support()
-        {
-            Console.WriteLine($"{Name} supports the party.");
+            int chargesNeeded =
+                (int)Math.Ceiling(
+                    (double)commission.RequiredEnergy / energyPerCharge
+                );
+
+            Console.WriteLine();
+            Console.WriteLine($"--- {Name} ---");
+            Console.WriteLine($"{Name} uses their Electro skill!");
+            Console.WriteLine($"Energy per charge: {energyPerCharge}");
+            Console.WriteLine($"Energy required: {commission.RequiredEnergy}");
+            Console.WriteLine($"Charges needed: {chargesNeeded}");
         }
     }
 }
