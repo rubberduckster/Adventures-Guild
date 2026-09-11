@@ -14,6 +14,7 @@ namespace Adventures_Guild.Characters
         public bool IsAvailable { get; private set; }
         public int Wallet { get; private set; }
         public int CommissionsCompleted { get; private set; }
+        public int RestCounter { get; private set; }
 
         public Character(string name, int ascension)
         {
@@ -22,23 +23,34 @@ namespace Adventures_Guild.Characters
             IsAvailable = true;
             Wallet = 0;
             CommissionsCompleted = 0;
+            RestCounter = 0;
         }
 
         public abstract void UseElementalSkill(Commission commission);
 
-        public void SetUnavailable()
-        {
-            IsAvailable = false;
-        }
-
-        public void SetAvailable()
-        {
-            IsAvailable = true;
-        }
         public void CompleteCommission(int reward)
         {
             Wallet += reward;
             CommissionsCompleted++;
+        }
+
+        public void StartRest(int restAmount)
+        {
+            RestCounter = restAmount;
+            IsAvailable = false;
+        }
+
+        public void ReduceRest()
+        {
+            if (RestCounter > 0)
+            {
+                RestCounter--;
+            }
+
+            if (RestCounter == 0)
+            {
+                IsAvailable = true;
+            }
         }
     }
 }
