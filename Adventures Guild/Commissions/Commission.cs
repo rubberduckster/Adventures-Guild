@@ -14,6 +14,7 @@ namespace Adventures_Guild.Commissions
         public CommissionDifficulty Difficulty { get; }
         public int Reward { get; }
         public bool IsCompleted { get; private set; }
+        public ElementType RequiredElement { get; }
 
         // Pyro
         public int BaseTime { get; set; }
@@ -37,7 +38,7 @@ namespace Adventures_Guild.Commissions
         // Electro
         public int RequiredEnergy { get; set; }
 
-        public Commission(string name, string description, string location, CommissionDifficulty difficulty,int reward)
+        public Commission(string name, string description, string location, CommissionDifficulty difficulty, int reward, ElementType requiredElement)
         {
             Name = name;
             Description = description;
@@ -45,6 +46,7 @@ namespace Adventures_Guild.Commissions
             Difficulty = difficulty;
             Reward = reward;
             IsCompleted = false;
+            RequiredElement = requiredElement;
         }
 
         public void Complete()

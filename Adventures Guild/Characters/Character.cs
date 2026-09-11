@@ -15,11 +15,13 @@ namespace Adventures_Guild.Characters
         public int Wallet { get; private set; }
         public int CommissionsCompleted { get; private set; }
         public int RestCounter { get; private set; }
+        public ElementType Element { get; }
 
-        public Character(string name, int ascension)
+        public Character(string name, int ascension, ElementType element)
         {
             Name = name;
             Ascension = ascension;
+            Element = element;
             IsAvailable = true;
             Wallet = 0;
             CommissionsCompleted = 0;

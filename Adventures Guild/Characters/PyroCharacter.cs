@@ -12,7 +12,7 @@ namespace Adventures_Guild.Characters
         public int BurningPower { get; private set; }
 
         public PyroCharacter(string name, int ascension, int burningPower) 
-        : base(name, ascension)
+        : base(name, ascension, ElementType.Pyro)
         {
             BurningPower = burningPower;
         }

@@ -12,7 +12,7 @@ namespace Adventures_Guild.Characters
         public int LifePower { get; private set; }
 
         public DendroCharacter(string name, int ascension, int lifePower)
-        : base(name, ascension)
+        : base(name, ascension, ElementType.Dendro)
         {
             LifePower = lifePower;
         }

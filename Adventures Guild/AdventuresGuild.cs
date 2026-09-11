@@ -41,6 +41,16 @@ namespace Adventures_Guild
             return selectionStrategy.SelectCharacter(commission, characters);
         }
 
+        public Character SelectCharacterStrategy(Commission commission)
+        {
+            return selectionStrategy.SelectCharacter(commission, characters);
+        }
+
+        public void SetSelectionStrategy(ICharacterSelectionStrategy selectionStrategy)
+        {
+            this.selectionStrategy = selectionStrategy;
+        }
+
         public void AssignCharacter(Character character, Commission commission)
         {
             if (!character.IsAvailable)
@@ -63,7 +73,17 @@ namespace Adventures_Guild
 
         public void CompleteCommission(Commission commission, Action<Commission> onCompleted)
         {
-            Character character = selectionStrategy.SelectCharacter(commission, characters);
+            List<Character> suitableCharacters = new List<Character>();
+
+            foreach (Character availableCharacter in characters)
+            {
+                if (availableCharacter.Element == commission.RequiredElement)
+                {
+                    suitableCharacters.Add(availableCharacter);
+                }
+            }
+
+            Character character = selectionStrategy.SelectCharacter(commission, suitableCharacters);
 
             if (character == null)
             {
@@ -83,6 +103,25 @@ namespace Adventures_Guild
             character.StartRest(2);
 
             onCompleted(commission);
+        }
+
+
+        public void ShowCharacters()
+        {
+            Console.WriteLine("=== Characters ===");
+            Console.WriteLine();
+
+            foreach (Character character in characters)
+            {
+                Console.WriteLine($"Name: {character.Name}");
+                Console.WriteLine($"Element: {character.Element}");
+                Console.WriteLine($"Ascension: {character.Ascension}");
+                Console.WriteLine($"Available: {character.IsAvailable}");
+                Console.WriteLine($"Rest: {character.RestCounter}");
+                Console.WriteLine($"Mora: {character.Wallet}");
+                Console.WriteLine($"Commissions completed: {character.CommissionsCompleted}");
+                Console.WriteLine();
+            }
         }
     }
 }

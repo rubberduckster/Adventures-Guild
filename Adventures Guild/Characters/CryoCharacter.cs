@@ -11,9 +11,10 @@ namespace Adventures_Guild.Characters
     {
         public int FreezePower { get; private set; }
 
-        public CryoCharacter(string name, int ascension)
-        : base(name, ascension)
+        public CryoCharacter(string name, int ascension, int freezePower)
+        : base(name, ascension, ElementType.Cryo)
         {
+            FreezePower = freezePower;
         }
 
         public override void UseElementalSkill(Commission commission)

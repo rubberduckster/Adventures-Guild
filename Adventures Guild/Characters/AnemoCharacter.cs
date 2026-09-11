@@ -11,9 +11,10 @@ namespace Adventures_Guild.Characters
     {
         public int WindPower { get; private set; }
 
-        public AnemoCharacter(string name, int ascension)
-            : base(name, ascension)
+        public AnemoCharacter(string name, int ascension, int windPower)
+        : base(name, ascension, ElementType.Anemo)
         {
+            WindPower = windPower;
         }
 
         public override void UseElementalSkill(Commission commission)

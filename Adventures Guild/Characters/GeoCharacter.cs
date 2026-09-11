@@ -12,7 +12,7 @@ namespace Adventures_Guild.Characters
         public int ShieldPower { get; private set; }
 
         public GeoCharacter(string name, int ascension, int shieldPower)
-        : base(name, ascension)
+        : base(name, ascension, ElementType.Geo)
         {
             ShieldPower = shieldPower;
         }

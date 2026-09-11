@@ -12,7 +12,7 @@ namespace Adventures_Guild.Characters
         public int EnergyPower { get; private set; }
 
         public ElectroCharacter(string name, int ascension, int energyPower)
-        : base(name, ascension)
+        : base(name, ascension, ElementType.Electro)
         {
             EnergyPower = energyPower;
         }
